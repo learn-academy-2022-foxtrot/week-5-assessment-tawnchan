@@ -14,12 +14,25 @@
 
 // a) Create a test with expect statements using the variables provided.
 
-const secretCodeWord1 = "Lackadaisical"
-// Expected output: "L4ck4d41s1c4l"
-const secretCodeWord2 = "Gobbledygook"
-// Expected output: "G0bbl3dyg00k"
-const secretCodeWord3 = "Eccentric"
-// Expected output: "3cc3ntr1c"
+describe("codedMessage", () => {
+
+    const secretCodeWord1 = "Lackadaisical"
+    // Expected output: "L4ck4d41s1c4l"
+    const secretCodeWord2 = "Gobbledygook"
+    // Expected output: "G0bbl3dyg00k"
+    const secretCodeWord3 = "Eccentric"
+    // Expected output: "3cc3ntr1c" 
+    
+    it("takes in a string and returns a coded message. The coded message converts 'a' to 4, 'e' to 3, 'i' to 1, and 'o' to 0", () => {
+        expect(codedMessage(secretCodeWord1)).toEqual("L4ck4d41s1c4l")
+        expect(codedMessage(secretCodeWord2)).toEqual("G0bbl3dyg00k")
+        expect(codedMessage(secretCodeWord3)).toEqual("3cc3ntr1c")
+    })
+    })
+
+    // ReferenceError: codedMessage is not defined
+    // This is a good error. Now we should define the function and make this test pass.
+
 
 // b) Create the function that makes the test pass.
 
