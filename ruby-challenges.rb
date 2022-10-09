@@ -38,12 +38,12 @@ particular_word(beverages_array, letter_t)
 # OUTPUT: Array with no nested arrays, so remove nested arrays and combine the values and alphabetize them.
 
 # So since we know what the idea is.. we have to first figure out how to remove the nested arrays.
-# I browsed and there is a method called .flatten that 'flattens' out nested arrays and returns an array with all the values in just that array.
+# I browsed and there is a method called .flatten that 'flattens' out nested arrays and returns an array with all the values in just that array. Basically it removes the square brackets and comebines the values into one.
 # After .flatten we can use .sort() which will automatically sort the values alphabetically. 
 
 # I'll define the method alphabetgized_array and it takes in a hash.
 def alphabetized_array(hash);
-    # We have to specifically indicate we want to  flatten the values of the hash, and after the flatten method, can tag on the sort()
+    # We have to specifically indicate we want to  flatten the values of the hash, and after the flatten method, can tag on the sort() method to alphabetize the output array.
     hash.values.flatten.sort()
 end
 
@@ -56,8 +56,37 @@ p alphabetized_array(us_states)
 
 # --------------------3a) Create a class called Bike that is initialized with a model, wheels, and current_speed. The default number of wheels is 2. The current_speed should start at 0. Create a bike_info method that returns a sentence with all the data from the bike object.
 
-# Expected output example: 'The Trek bike has 2 wheels and is going 0 mph.'
+# Okay... so if I am understanding this challenge correctly..
+# It it asking me to make a class called Bike that initializes new instances of itself with 3 specific variables: model, wheels: 2, and current speed = 0 mph.
 
+# First we will declare the new class of Bike, which is like a blue print for stamping out objects.
+class Bike
+    #anNndDd theNnn... we set the shared variables for the data we want to collect/create for each of the instances of this Bike class.
+    def initialize(model, wheels = 2, current_speed = 0)
+      #We'll tie all their attributes up with @ so we can call upon them 
+      @model = model
+      @wheels = wheels
+      @current_speed = current_speed
+    end
+    # It then asks me to create a method called 'bike_info' that returns a sentence with all the data we initially called for a new object.
+    # We'll name the method 'get_info'.
+    def get_info
+        # since we've already got the attributes/info tied up top and ready. we can just drop them into a sentence as an output. 
+        "The #{@model} has #{@wheels} wheels and is going #{@current_speed} mph."
+    end
+end
+
+# Here we'll create a new instance/object out of the model class we just created up top...
+# We'll call it trek_bike because we're smart like that. and set the Bike to .new and pass in the its name as the first and only rgument 'Trek bike' because that is all we need. 
+trek_bike = Bike.new('Trek bike')
+# lets call upon the method we built inside the new instance/object of the bike.
+p trek_bike.get_info
+# Output: "The Trek bike has 2 wheels and is going 0 mph."
+# Expected output example: 'The Trek bike has 2 wheels and is going 0 mph.'
+# Just to see what would happenm I played around by adding random values onto the new bike.
+# new_model = Bike.new('Trek bike', 0, 4)
+# "The Trek bike has 0 wheels and is going 4 mph."
+# Obviously this bike is flying... 
 
 
 # -------------------3b) Add the ability to pedal faster and brake. The pedal_faster method should increase the speed by a given amount. The brake method should decrease the speed by a given amount. The bike cannot go negative speeds.
