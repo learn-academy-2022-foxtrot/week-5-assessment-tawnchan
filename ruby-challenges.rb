@@ -6,10 +6,15 @@
 # INPUT: (Array(words), letter)
 # OUTPUT: [Words containing the particular letter]
 
+# We are going to need to arguments passed in, the array of words and also the letter to be filtered.
+# We are going to have use a iteration method that will iterate through each word in the array.
+# For this we are going to use the .select method that will iterate through the given array and we can pass in another method .include? to check to see if any of the words in the array contain the given letter.
 
-
+# define the method, named it particular_word and pass in two arguments (array, letter)
 def particular_word(array, letter);
+    # From the array we are going to .select the word values of all the indexes of the array and with that word we use .include?(letter) to check to see if that word contains that letter.
     array.select { |word| word.include?(letter) }
+    # Since Ruby has an implicit return, we don't need to return anything as the method .select will return an array automatically.
 end
 
 beverages_array = ['coffee', 'tea', 'juice', 'water', 'soda water']
