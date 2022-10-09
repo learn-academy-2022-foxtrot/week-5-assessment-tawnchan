@@ -57,7 +57,7 @@ function codedMessage(message) {
         // we'll start our logic with the if conditional statement followed by else if/else conditionals of the requested conditions. This logic will replace all vowels to the corresponding given integer.
         if (letter === "a") {
           return 4;
-          // we have to append .toLowerCase() the letter variable so it will equate whether the given message contains capitalized letters or not.
+          // we have to append .toLowerCase() the letter variable so it will equate regardless of whether the given message contains capitalized letters or not.
         } else if (letter.toLowerCase() === "e") {
           return 3;
         } else if (letter.toLowerCase() === "i") {
@@ -84,20 +84,20 @@ function codedMessage(message) {
 
 // a) Create a test with expects statement using the variable provided.
 
-// describe("particularWord", () => {
+describe("particularWord", () => {
 
-//     const fruitArray = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach", "Kiwi"]
+    const fruitArray = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach", "Kiwi"]
 
-//     const letterA = "a"
-//     // Expected output: ["Mango", "Apricot", "Peach"]
-//     const letterE = "e"
-//     // Expected output: ["Cherry", "Blueberry", "Peach"]    
+    const letterA = "a"
+    // Expected output: ["Mango", "Apricot", "Peach"]
+    const letterE = "e"
+    // Expected output: ["Cherry", "Blueberry", "Peach"]    
     
-//     it("Takes in an array of words and a single letter and returns an array of all the words containing that particular letter", () => {
-//         expect(particularWord(fruitArray, letterA)).toEqual(["Mango", "Apricot", "Peach"])
-//         expect(particularWord(fruitArray, letterE)).toEqual(["Cherry", "Blueberry", "Peach"])
-//     })
-//     })
+    it("Takes in an array of words and a single letter and returns an array of all the words containing that particular letter", () => {
+        expect(particularWord(fruitArray, letterA)).toEqual(["Mango", "Apricot", "Peach"])
+        expect(particularWord(fruitArray, letterE)).toEqual(["Cherry", "Blueberry", "Peach"])
+    })
+    })
 
 // OUTPUT: ReferenceError: particularWord is not defined
 // This is a good error... now we just have to create the function.
@@ -109,9 +109,11 @@ function codedMessage(message) {
         // ["Cherry", "Blueberry", "Peach"]
 
 // This function is going to take in two arguments
-function particularWord(fruitArray, letterA){
+// function particularWord(fruitArray, letterA){
     
-}
+// }
+
+
 
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a "full house". A full house is exactly one pair and one three of a kind.
 

@@ -9,6 +9,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 1. What is a gem?
 
 Your answer:
+    A gem are ruby packages that contain 
 
 Researched answer:
 

@@ -3,12 +3,27 @@
 
 # --------------------1) Create a method that takes in an array of words and a single letter and returns an array of all the words containing that particular letter. Use the test variables provided.
 
+# INPUT: (Array(words), letter)
+# OUTPUT: [Words containing the particular letter]
+
+
+
+def particular_word(array, letter);
+    array.select { |word| word.include?(letter) }
+end
+
 beverages_array = ['coffee', 'tea', 'juice', 'water', 'soda water']
 
 letter_o = 'o'
 # Expected output: ['coffee', 'soda water']
 letter_t = 't'
 # Expected output: ['tea', 'water', 'soda water']
+
+particular_word(beverages_array, letter_o)
+# ["coffee", "soda water"]
+
+particular_word(beverages_array, letter_t)
+# ["tea", "water", "soda water"]
 
 
 # -------------------2) Create a method that takes in a hash and returns one array with all the hash values at their own index and in alphabetical order. No nested arrays. Use the test variable provided.
