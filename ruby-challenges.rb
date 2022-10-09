@@ -34,8 +34,24 @@ particular_word(beverages_array, letter_t)
 # -------------------2) Create a method that takes in a hash and returns one array with all the hash values at their own index and in alphabetical order. No nested arrays. Use the test variable provided.
 # HINT: Google 'ruby get rid of nested arrays'
 
+# INPUT: hash: us_states
+# OUTPUT: Array with no nested arrays, so remove nested arrays and combine the values and alphabetize them.
+
+# So since we know what the idea is.. we have to first figure out how to remove the nested arrays.
+# I browsed and there is a method called .flatten that 'flattens' out nested arrays and returns an array with all the values in just that array.
+# After .flatten we can use .sort() which will automatically sort the values alphabetically. 
+
+# I'll define the method alphabetgized_array and it takes in a hash.
+def alphabetized_array(hash);
+    # We have to specifically indicate we want to  flatten the values of the hash, and after the flatten method, can tag on the sort()
+    hash.values.flatten.sort()
+end
+
 us_states = { northwest: ['Washington', 'Oregon', 'Idaho'], southwest: ['California', 'Arizona', 'Nevada'], notheast: ['Maine', 'New Hampshire', 'Vermont'] }
 # Expected output: ['Arizona', 'California', 'Idaho', 'Maine', 'Nevada', 'New Hampshire', 'Oregon', 'Vermont', 'Washington'] 
+
+p alphabetized_array(us_states)
+# ["Arizona", "California", "Idaho", "Maine", "Nevada", "New Hampshire", "Oregon", "Vermont", "Washington"]
 
 
 # --------------------3a) Create a class called Bike that is initialized with a model, wheels, and current_speed. The default number of wheels is 2. The current_speed should start at 0. Create a bike_info method that returns a sentence with all the data from the bike object.
