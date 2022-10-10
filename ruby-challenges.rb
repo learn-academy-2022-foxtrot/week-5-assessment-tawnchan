@@ -74,6 +74,23 @@ class Bike
         # since we've already got the attributes/info tied up top and ready. we can just drop them into a sentence as an output. 
         "The #{@model} has #{@wheels} wheels and is going #{@current_speed} mph."
     end
+    # -------------------3b) Add the ability to pedal faster and brake. The pedal_faster method should increase the speed by a given amount.
+     # So we'll be legit with it and name the method 'pedal_faster' and it takes in a variable number.
+    def pedal_faster(num)
+        # everytime it's called upon, we'll add the passed in number to the current speed.
+        @current_speed = @current_speed + num
+    end
+    # The brake method should decrease the speed by a given amount. The bike cannot go negative speeds.
+    def brake(num)
+        # We have to consider we can't go negative speed when braking, so we'll do an if/else conditionals for this method.
+        # we'll set a condtional if statement for how it should respond if we have a negative outcome... in this case, we will assign it to a base of 0.
+        if (@current_speed - num).negative?()
+             @current_speed = 0
+        # the conditional else should function as usual for braking, it should take in the current speed and subtract the given number variable.
+        else @current_speed = @current_speed - num
+        end
+    end
+
 end
 
 # Here we'll create a new instance/object out of the model class we just created up top...
@@ -91,7 +108,14 @@ p trek_bike.get_info
 
 # -------------------3b) Add the ability to pedal faster and brake. The pedal_faster method should increase the speed by a given amount. The brake method should decrease the speed by a given amount. The bike cannot go negative speeds.
 
-# Expected output example: my_bike.pedal_faster(10) => 10
-# Expected output example: my_bike.pedal_faster(18) => 28
-# Expected output example: my_bike.brake(5) => 23
-# Expected output example: my_bike.brake(25) => 0
+trek_bike.pedal_faster(10) 
+# => 10
+trek_bike.pedal_faster(18) 
+# => 28
+trek_bike.brake(5) 
+# => 23
+trek_bike.brake(25) 
+# => 0
+
+p trek_bike.get_info
+# "The Trek bike has 2 wheels and is going 0 mph."
