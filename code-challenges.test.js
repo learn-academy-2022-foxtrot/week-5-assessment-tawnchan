@@ -89,11 +89,12 @@ describe("particularWord", () => {
     const letterE = "e"
     // Expected output: ["Cherry", "Blueberry", "Peach"]    
     // it statement here describes what the expected output of the function should be.
-    it("Takes in an array of words and a single letter and returns an array of all the words containing that particular letter", () => {
-        expect(particularWord(fruitArray, letterA)).toEqual(["Mango", "Apricot", "Peach"])
-        expect(particularWord(fruitArray, letterE)).toEqual(["Cherry", "Blueberry", "Peach"])
-    })
-    })
+    
+it("Takes in an array of words and a single letter and returns an array of all the words containing that particular letter", () => {
+    expect(particularWord(fruitArray, letterA)).toEqual(["Mango", "Apricot", "Peach"])
+    expect(particularWord(fruitArray, letterE)).toEqual(["Cherry", "Blueberry", "Peach"])
+})
+})
 
 // OUTPUT: ReferenceError: particularWord is not defined
 
@@ -125,7 +126,7 @@ function particularWord(array, letter) {
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a "full house". A full house is exactly one pair and one three of a kind.
 
 // a) Create a test with expect statements using the variable provided.
-
+describe("fullHouse", () => {
 const hand1 = [5, 5, 5, 3, 3]
 // Expected output: true
 const hand2 = [5, 5, 3, 3, 4]
@@ -134,5 +135,18 @@ const hand3 = [5, 5, 5, 5, 4]
 // Expected output: false
 const hand4 = [7, 2, 7, 2, 7]
 // Expected output: true
+it("Takes in an array of words and a single letter and returns an array of all the words containing that particular letter", () => {
+  expect(fullHouse(hand1)).toEqual(true)
+  expect(fullHouse(hand2)).toEqual(false)
+  expect(fullHouse(hand3)).toEqual(false)
+  expect(fullHouse(hand4)).toEqual(true)
+})
+})
+
+ReferenceError: fullHouse is not defined
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+
+// This is a good fail. Now we'll define the method.
 
 // b) Create the function that makes the test pass.
