@@ -15,7 +15,7 @@
 
 // a) Create a test with expect statements using the variables provided.
 
-
+// use describe to start the test and build out the structure of the test with arrow functions.
 describe("codedMessage", () => {
 
     const secretCodeWord1 = "Lackadaisical"
@@ -24,7 +24,7 @@ describe("codedMessage", () => {
     // Expected output: "G0bbl3dyg00k"
     const secretCodeWord3 = "Eccentric"
     // Expected output: "3cc3ntr1c" 
-    
+    // it statement here describes what the expected output of the function should be.
     it("takes in a string and returns a coded message. The coded message converts 'a' to 4, 'e' to 3, 'i' to 1, and 'o' to 0", () => {
         expect(codedMessage(secretCodeWord1)).toEqual("L4ck4d41s1c4l")
         expect(codedMessage(secretCodeWord2)).toEqual("G0bbl3dyg00k")
@@ -74,16 +74,12 @@ function codedMessage(message) {
 
 //   Test Suites: 1 passed, 1 total
 //   Tests:       1 passed, 1 total
-//   Snapshots:   0 total
-//   Time:        0.185 s
-//   Ran all test suites.
-//   ✨  Done in 0.89s.
 
 
 // --------------------2) Create a function that takes in an array of words and a single letter and returns an array of all the words containing that particular letter.
 
 // a) Create a test with expects statement using the variable provided.
-
+// use describe to start the test and build out the structure of the test with arrow functions.
 describe("particularWord", () => {
 
     const fruitArray = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach", "Kiwi"]
@@ -92,7 +88,7 @@ describe("particularWord", () => {
     // Expected output: ["Mango", "Apricot", "Peach"]
     const letterE = "e"
     // Expected output: ["Cherry", "Blueberry", "Peach"]    
-    
+    // it statement here describes what the expected output of the function should be.
     it("Takes in an array of words and a single letter and returns an array of all the words containing that particular letter", () => {
         expect(particularWord(fruitArray, letterA)).toEqual(["Mango", "Apricot", "Peach"])
         expect(particularWord(fruitArray, letterE)).toEqual(["Cherry", "Blueberry", "Peach"])
@@ -100,6 +96,7 @@ describe("particularWord", () => {
     })
 
 // OUTPUT: ReferenceError: particularWord is not defined
+
 // This is a good error... now we just have to create the function.
 
 // b) Create the function that makes the test pass.
@@ -108,12 +105,22 @@ describe("particularWord", () => {
 // OUTPUT: ["Mango", "Apricot", "Peach"] or
         // ["Cherry", "Blueberry", "Peach"]
 
-// This function is going to take in two arguments
-// function particularWord(fruitArray, letterA){
-    
-// }
+// This function is going to take in two arguments/parameters
+    // array and letter
+    // I'm going to name it particularWord
+function particularWord(array, letter) {
+  // inside of this function i'll declare a new variable that contains an array of the values we are going to push into it.
+    // the method is we are going to use .filter on the array to iterate and filter through each element in the array.
+  let newArr = array.filter((word) => {
+    // it then returns the element/word that includes the letter given in the second parameter/argument. we .toLowerCase() everything so we don't get any errors regarding capitalization. 
+    return word.toLowerCase().includes(letter.toLowerCase());
+  });
+  // we then return the newArr that has been filtered and sorted through. 
+  return newArr;
+};
 
-
+// Test Suites: 1 passed, 1 total
+// Tests:       2 passed, 2 total
 
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a "full house". A full house is exactly one pair and one three of a kind.
 
