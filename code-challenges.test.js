@@ -126,7 +126,7 @@ function particularWord(array, letter) {
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a "full house". A full house is exactly one pair and one three of a kind.
 
 // a) Create a test with expect statements using the variable provided.
-describe("fullHouse", () => {
+describe("isFullHouse", () => {
 const hand1 = [5, 5, 5, 3, 3]
 // Expected output: true
 const hand2 = [5, 5, 3, 3, 4]
@@ -135,18 +135,46 @@ const hand3 = [5, 5, 5, 5, 4]
 // Expected output: false
 const hand4 = [7, 2, 7, 2, 7]
 // Expected output: true
-it("Takes in an array of words and a single letter and returns an array of all the words containing that particular letter", () => {
-  expect(fullHouse(hand1)).toEqual(true)
-  expect(fullHouse(hand2)).toEqual(false)
-  expect(fullHouse(hand3)).toEqual(false)
-  expect(fullHouse(hand4)).toEqual(true)
+it("takes in an array of 5 numbers and determines whether or not the array is a Full House", () => {
+  expect(isFullHouse(hand1)).toEqual(true)
+  expect(isFullHouse(hand2)).toEqual(false)
+  expect(isFullHouse(hand3)).toEqual(false)
+  expect(isFullHouse(hand4)).toEqual(true)
 })
 })
 
-ReferenceError: fullHouse is not defined
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 2 passed, 3 total
+// ReferenceError: fullHouse is not defined
+// Test Suites: 1 failed, 1 total
+// Tests:       1 failed, 2 passed, 3 total
 
 // This is a good fail. Now we'll define the method.
 
 // b) Create the function that makes the test pass.
+
+// INPUT: array of 5 numbers [5, 5, 5, 3, 3]
+// OUTPUT: fullHouse = true 'Your hand is a Full House'
+//         fullHouse = false 'Your hand is not a Full House'
+
+// We have to declare the function and name it 'isFullHouse' that takes in an array of cards.
+function isFullHouse(cards) {
+// In order to make it a full house there should be exactly 3 same numbers(cards) along with 2 same numbers(cards). So, we have to use an iteration method that will iterate through each element of the array of numbers(cards) and see if there are any duplicates. I wasn't sure of what sorting method to use but saw there two were that were frequently shown, .sort() and .forEach().  The difference is that .sort() iterates through the array in place and returns the same array now sorted. And .forEach() iterates through element and operates a method on each element. I'm not sure which one to do or even what the correct syntax will be.. but lets gOoOo... we'll use .sort() to sort through the numbers(cards) and compare the indexes to return true or false.
+// we'll call the cards our 'hand'.
+  let hand = cards.sort()
+    //we need a series of if conditionals to setup the logic for the full house conditions. We'll achieve this by evaluating the indexes of the 'hand'.
+    // we will say if the [0] index of the hand is equal to the [2] and the [3] index is equal to the [4] index, return true. this meets our 3x2 full house condition.
+    if (hand[0] === hand[2] && hand[3] === hand[4]){
+      return true
+      // now, we need an else if statement for the flip side 2x3 condition of the indexes.
+    } else if (hand[0] === hand[1] && hand[2] === hand[4]){
+      return true
+      // else statement will return false.
+    } else {
+      return false
+    }
+}
+
+
+// YAy.. we passed. 
+// PASS  ./code-challenges.test.js
+// Test Suites: 1 passed, 1 total
+// Tests:       3 passed, 3 total
